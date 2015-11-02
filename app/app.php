@@ -7,10 +7,17 @@
 
     $app['debug']=true;
 
-    $server = 'mysql:host=https://f2f-face2face.rhcloud.com/phpmyadmin/;dbname=f2f';
+    define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
+    define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT'));
+    define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
+    define('DB_PASS',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
+    define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
+
+
+    $server = 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port='.DB_PORT;;
     $username = 'adminREakaeE';
     $password = '4MFHL6g5eZta';
-    $DB = new PDO($server, $username, $password);
+    $DB = new PDO($server, DB_USER, DB_PASS);
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views'
