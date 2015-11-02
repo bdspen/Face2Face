@@ -1,0 +1,83 @@
+<html>
+    <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- get-shit-done css -->
+    <link rel="stylesheet" type="text/css" href="css/get-shit-done.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <title>Face2Face</title>
+    </head>
+    <body>
+        <div class="container">
+            <form action="/logoff/{{ user.getId }}">
+                <input name="_method" type="hidden" value="{{ user.getId }}">
+                <button type="submit" class="btn btn-default btn-sm inline pull-right">Log off</button>
+            </form>
+
+            <h1>Face2Face</h1>
+
+            <!-- list of all users nearby -->
+            {% if avialable_users is not empty %}
+                <h2><small>Users nearby you:</small></h2>
+                  {% for available_user in avialable_users %}
+                    <ul>
+                        <li>{{ available_user.getUserName }}
+                                <ul>
+                                    <form action="/request_meetup" method="post">
+                                        <input id="user2_id" name="user2_id" type="hidden" value="{{ available_user.getId() }}">
+                                        <input id="user1_id" name="user1_id" type="hidden" value="{{ user.getId() }}">
+                                        <div id="initially-showing">
+                                            <button type="submit" class="btn btn-info btn-sm">Request to meet up</button>
+                                        </div>
+                                    </form>
+                                </ul>
+                        </li>
+                    </ul>
+                  {% endfor %}
+            {% else %}
+                <h2><small>There's no users yet.</small></h2>
+            {% endif %}
+
+            <hr noshade size=4 width=100% align=left>
+
+            <!-- list of all requests -->
+            {% if requests is not empty %}
+                <h2><small>Requests you received to meet up:</small></h2>
+                  {% for request in requests %}
+                      <ul>
+                          <li>{{ request.getUserName }}
+                              <form action="/confirm_request" method="post">
+                                <input id="user2_id" name="user2_id" type="hidden" value="{{ request.getId }}">
+                                <input id="user1_id" name="user1_id" type="hidden" value="{{ user.getId }}">
+                                <div id="initially-showing">
+                                    <button type="submit" class="btn btn-info btn-sm">Accept Request</button>
+                                </div>
+                              </form>
+                              
+                              <form action="/reject_request" method="post">
+                                <input id="user2_id" name="user2_id" type="hidden" value="{{ request.getId }}">
+                                <input id="user1_id" name="user1_id" type="hidden" value="{{ user.getId }}">
+                                <div id="initially-showing">
+                                    <button type="submit" class="btn btn-info btn-sm">Reject Request</button>
+                                </div>
+                              </form>
+                          </li>
+                      </ul>
+                  {% endfor %}
+            {% else %}
+                <h2><small>There's no requests yet.</small></h2>
+            {% endif %}
+        </div>
+    </body>
+</html>

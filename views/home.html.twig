@@ -1,0 +1,47 @@
+<html>
+    <head>
+    <title>Face2Face</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- get-shit-done css -->
+    <link rel="stylesheet" type="text/css" href="css/get-shit-done.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="clearfix">
+                <button href="/" class="btn btn-danger inline pull-right" id="signup">Sign up</button>
+                <form action="/login">
+                    <button type="submit" class="btn btn-info inline pull-right">Log in</button>
+                </form>
+            </div>
+
+            <h1>Face2Face<br>
+                <small>Instantly meet up with people near you.</small>
+            </h1>
+
+            <form action="/signup" method="post" data-toggle="validator" role="form">
+                <div class="form-group">
+                    <ul class="list-group">
+                        <li class="list-group-item"><input id="user_name" name="user_name" type="user_name" class="form-control" placeholder="Username" required></li>
+
+                        <li class="list-group-item"><input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+                        </li>
+                        <li class="list-group-item"><input id="retype_password" name="retype_password" type="password" class="form-control" data-match="#password" placeholder="Retype password" data-match-error="Whoops, the passwords don't match." required>
+                            <div class="help-block with-errors"></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="btn btn-danger btn-fill">Sign up</button>
+            </form>
+        </div>
+    </body>
+</html>

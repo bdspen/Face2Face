@@ -1,0 +1,27 @@
+<html>
+    <head>
+    <title>Face2Face</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- get-shit-done css -->
+    <link rel="stylesheet" type="text/css" href="css/get-shit-done.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Face2Face</h1>
+                <form action="/wait_for_confirmation">
+                    <input id="user2_id" name="user2_id" type="hidden" value="{{ user2_id }}">
+                    <input id="user1_id" name="user1_id" type="hidden" value="{{ user1_id }}">
+                    <h2><button type="submit" class="btn btn-info btn-fill">Check If User Has Confirmed</button></h2>
+                </form>
+        </div>
+    </body>
+</html>

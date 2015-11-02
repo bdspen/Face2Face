@@ -1,0 +1,59 @@
+.container {
+    width: 560px;
+}
+
+h1 {
+    text-align: center;
+    letter-spacing: -2px;
+}
+
+h1 small {
+    letter-spacing: 0px;
+}
+
+button {
+    transition-duration: 0.3s;
+}
+
+.right {
+    display: inline;
+    float: right;
+}
+
+.right button.last {
+    margin-right: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+#initially-hidden {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 36px;
+        position: center;
+    }
+
+    .btn {
+        width:100% !important;
+    }
+
+    #signup {
+        display: none;
+    }
+
+
+    #googleMap {
+        width: 360px;
+        height: 200px;
+    }
+
+}

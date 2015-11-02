@@ -1,0 +1,38 @@
+<html>
+    <head>
+    <title>Face2Face</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- get-shit-done css -->
+    <link rel="stylesheet" type="text/css" href="css/get-shit-done.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Face2Face</h1>
+            <div class="alert alert-success" role="alert">Confirmed!</div>
+            <p>
+                You are meeting <strong>{{ user_to_meet.getUserName }}</strong><br>
+                Location to meet: <strong>{{ location.getPlaceName }}</strong><br>
+                Address: <strong>{{ location.getAddress }}</strong>
+            </p>
+            <form action="/user1_confirm_meet" method="post">
+                <input id="user2_id" name="user2_id" type="hidden" value="{{ user_to_meet.getId }}">
+                <input id="user1_id" name="user1_id" type="hidden" value="{{ user.getId }}">
+                <button type="submit" class="btn btn-default btn-sm">Confirm Meetup</button>
+            </form>
+            <form action="/user1_deny_meet" method="post">
+                <input id="user2_id" name="user2_id" type="hidden" value="{{ user_to_meet.getId }}">
+                <input id="user1_id" name="user1_id" type="hidden" value="{{ user.getId }}">
+                <button type="submit" class="btn btn-default btn-sm">Did Meet Up Not Happen</button>
+            </form>
+        </div>
+    </body>
+</html>
