@@ -5,7 +5,7 @@
 
     $app = new Silex\Application();
 
-    $app['debug']=true;
+    // $app['debug']=true;
 
     define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
     define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT'));
